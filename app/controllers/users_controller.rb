@@ -1,0 +1,63 @@
+class UsersController < ApplicationController
+
+  require 'securerandom'
+
+  def index
+    @users = User.all
+  end
+
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.valid?
+      flash[:success] = "User Created Successfully !"
+      @user.rad_pwd = SecureRandom.hex
+      @user.save!
+      redirect_to users_path
+    else
+      flash[:error] = @user.errors.full_messages
+      render :new
+    end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "user-report",
+        title: @user.first_name.capitalize+"_"+@user.lastname.capitalize
+      end
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path
+    else
+      render 'edit'
+      flash[:error] = @user.errors.full_messages
+    end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_path
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:first_name, :lastname, :emp_id, :reporting_manager, :access_level, :rad_uname, :rad_pwd, :rad_uname_cre_date, :rad_pwd_exp_date, :email, :sign_of_HOD)
+  rescue
+    {}
+  end
+end

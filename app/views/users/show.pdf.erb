@@ -1,0 +1,48 @@
+<div class="row show-user">
+<h2 style="color: #3D86C6; border-bottom: 1px solid #3D86C6;">Tata Communications Transformation Limited</h2>
+<h5>(This Document is meant for Audit purpose)</h5>
+  <h3>Details of Radius User </h3>
+
+  <table style="border: 1px solid black;" class="table table-condensed">
+    <tr>
+      <th>First Name</th>
+      <td><%= @user.first_name.capitalize %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= @user.lastname.capitalize %> </td>
+    </tr>
+    <tr>
+      <th>Employee ID</th>
+      <td><%= @user.emp_id %></td>
+    </tr>
+    <tr>
+      <th>Email ID</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>Reporting Manager</th>
+      <td><%= @user.reporting_manager.capitalize %></td>
+    </tr>
+    <tr>
+      <th>Access Level</th>
+      <td><%= @user.access_level.capitalize %></td>
+    </tr>
+    <tr>
+      <th>Radius Username</th>
+      <td><%= @user.rad_uname %></td>
+    </tr>
+    <tr>
+      <th>Radius Passsword</th>
+      <td><%= @user.rad_pwd %> (Encrypted)</td>
+    </tr>
+    <tr>
+      <th>User Creation Date</th>
+      <td><%= @user.rad_uname_cre_date %> </td>
+    </tr>
+    <tr>
+      <th>Radius Passsword Expiry Date</th>
+      <td><%= @user.rad_pwd_exp_date %></td>
+    </tr>
+  </table>
+</div>

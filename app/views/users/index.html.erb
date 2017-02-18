@@ -1,0 +1,28 @@
+<h1>List of Users</h1>
+
+<button type="button" class="btn btn-sm btn-default"><%= link_to 'Add User',new_user_path %></button>
+
+<table class="table table-condensed">
+  <tr>
+    <th>Username</th>
+    <th>Emp-ID</th>
+    <th>Rep-Mgr</th>
+    <th>Access Level</th>
+    <th>Sign of HOD</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name.capitalize+" "+user.lastname.capitalize %></td>
+    <td><%= user.emp_id %></td>
+    <td><%= user.reporting_manager.capitalize %></td>
+    <td><%= user.access_level %></td>
+    <td><%= "Signed" if (user.sign_of_HOD == true) %></td>
+    <td><%= link_to 'Show', user_path(user) %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Delete', user_path(user), :method => :delete,data: {confirm: "Are you sure?"} %></td>
+  </tr>
+  <% end %>
+</table>

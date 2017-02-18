@@ -1,0 +1,51 @@
+<div class="row show-user">
+  <h2>Details of User </h2>
+  <table class="table table-condensed">
+    <tr>
+      <th>First Name</th>
+      <td><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= @user.lastname %> </td>
+    </tr>
+    <tr>
+      <th>Employee ID</th>
+      <td><%= @user.emp_id %></td>
+    </tr>
+    <tr>
+      <th>Email ID</th>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <th>Reporting Manager</th>
+      <td><%= @user.reporting_manager %></td>
+    </tr>
+    <tr>
+      <th>Access Level</th>
+      <td><%= @user.access_level.capitalize %></td>
+    </tr>
+    <tr>
+      <th>Radius Username</th>
+      <td><%= @user.rad_uname %></td>
+    </tr>
+    <tr>
+      <th>Radius Passsword</th>
+      <td><%= @user.rad_pwd %> (Encrypted)</td>
+    </tr>
+    <tr>
+      <th>User Creation Date</th>
+      <td><%= @user.rad_uname_cre_date %> </td>
+    </tr>
+    <tr>
+      <th>Radius Passsword Expiry Date</th>
+      <td><%= @user.rad_pwd_exp_date %></td>
+    </tr>
+  </table>
+
+  <%= link_to 'Edit', edit_user_path(@user), :class => "show-edit-del-btn" %> <br><br>
+  <%= link_to 'Delete',user_path(@user),:method => :delete, :class => "show-edit-del-btn"%><br><br>
+  <%= link_to "Get PDF", user_path(format: :pdf), :class => "show-edit-del-btn" %>
+</div>
+
+

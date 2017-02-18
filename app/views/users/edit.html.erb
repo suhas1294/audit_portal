@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-md-5 col-xs-5 new-user-form">
+    <p>
+      <%= flash[:success] unless flash[:success].blank? %>
+      <%= flash[:error] unless flash[:error].blank? %>
+    </p>
+
+    <%= form_for(@user, :html => {:class => "form-group"}) do |f| %>
+    <%= f.label :First_Name %>
+    <%= f.text_field :first_name, :class=>"form-control" %> </br>
+
+    <%= f.label :Last_Name %>
+    <%= f.text_field :lastname, :class=>"form-control" %> </br>
+
+    <%= f.label :Email %>
+    <%= f.email_field :email, :class=>"form-control" %> </br>
+
+    <%= f.label :Employee_ID %>
+    <%= f.text_field :emp_id, :class=>"form-control" %> </br>
+
+    <%= f.label :Reporting_Manager %>
+    <%= f.text_field :reporting_manager, :class=>"form-control" %> </br>
+
+    <%= f.label :Access_Level %><br />
+
+    <%= f.radio_button :access_level, 'L1', :checked => true %>
+    <%= f.label :access_level, "L1", :value => "L1" %> &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <%= f.radio_button :access_level, 'L2' %>
+    <%= f.label :access_level, "L2", :value => "L2"%> &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <%= f.radio_button :access_level, 'L3' %>
+    <%= f.label :access_level, "L3", :value => "L3"%> &nbsp;&nbsp;&nbsp;&nbsp;</br></br>
+
+    <%= f.label :Radius_Username %>
+    <%= f.text_field :rad_uname, :class=>"form-control" %> </br>
+
+    <%= f.label :Radius_Password %>
+    <%= f.text_field :rad_pwd, :class=>"form-control" %> </br>
+
+    <%= f.label :rad_uname_cre_date, "Username Creation Date" %>
+    <%= f.date_select :rad_uname_cre_date%>
+
+    <%= f.label :rad_pwd_exp_date, "Username Password Expiration Date" %>
+    <%= f.date_select :rad_pwd_exp_date%> <br><br>
+
+    <%= f.check_box :sign_of_HOD %>
+    <%= f.label :Signature_of_HOD %><br><br>
+
+    <%= f.submit "Update user", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
