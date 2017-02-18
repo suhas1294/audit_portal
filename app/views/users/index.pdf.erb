@@ -1,0 +1,43 @@
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid rgba(61,134,198,0.30);
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(61,134,198,0.30);
+  }
+</style>
+
+<h2 style="color: #3D86C6; border-bottom: 1px solid #3D86C6;">Tata Communications Transformation Services Limited</h2>
+<h5>(This Document is meant for Audit purpose)</h5>
+<h3>List of All Radius Users</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Username</th>
+    <th>Emp-ID</th>
+    <th>Rep-Mgr</th>
+    <th>Access Level</th>
+    <th>Sign of HOD</th>
+    <th>Creation Date</th>
+  </tr>
+
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.first_name.capitalize+" "+user.lastname.capitalize %></td>
+    <td><%= user.emp_id %></td>
+    <td><%= user.reporting_manager.capitalize %></td>
+    <td><%= user.access_level %></td>
+    <td><%= "Signed" if (user.sign_of_HOD == true) %></td>
+    <td><%= user.rad_uname_cre_date %></td>
+  </tr>
+  <% end %>
+</table>

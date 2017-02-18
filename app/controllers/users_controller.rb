@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
 
+  http_basic_authenticate_with name: "suhas", password: "Password@1", except: :index
   require 'securerandom'
 
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "user-report",
+        title: "Radius_all_users_list"+Date.today.to_s,
+        orientation: 'Landscape'
+      end
+    end
   end
 
   def new
@@ -13,7 +22,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.valid?
-      flash[:success] = "User Created Successfully !"
+      # flash[:success] = "User Created Successfully !"
       @user.rad_pwd = SecureRandom.hex
       @user.save!
       redirect_to users_path

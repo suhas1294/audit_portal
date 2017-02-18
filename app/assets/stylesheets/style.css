@@ -14,11 +14,7 @@
 }
 .show-edit-del-btn{
   padding: 5px;
-  border: 2px solid black;
-}
-.pdf-header{
-  color: #3D86C6;
-  border-bottom: 1px solid #3D86C6;
+  border: 2px solid #3D86C6;
 }
 /*html, body {
 text-align: center;

@@ -1,12 +1,12 @@
 <h1>List of Users</h1>
 
 <button type="button" class="btn btn-sm btn-default"><%= link_to 'Add User',new_user_path %></button>
-
+<button type="button" class="btn btn-sm btn-default"><%= link_to 'Get PDF',users_path(format: :pdf), method: :get %></button>
 <table class="table table-condensed">
   <tr>
     <th>Username</th>
     <th>Emp-ID</th>
-    <th>Rep-Mgr</th>
+    <th>Reporting-Manager</th>
     <th>Access Level</th>
     <th>Sign of HOD</th>
     <th></th>

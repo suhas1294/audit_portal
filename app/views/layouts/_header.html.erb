@@ -7,13 +7,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Dalo-Radius</a>
+      <%#= link_to 'Tata Communications', root_path, :class => "navbar-brand" %>
+      <a class="navbar-brand" href="http://www.tatacommunications-ts.com/">Tata Communications</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
+        <li><%= link_to 'Home', root_path, :class =>"active" %></li>
         <li><%= link_to 'Management', users_path, :class => "" %></li>
-        <li><%= link_to 'Dummy', users_path, :class => "" %></li>
+        <!-- <li><%#= link_to 'Dummy', users_path, :class => "" %></li> -->
+        <li><a href="#">Action</a></li>
             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -34,4 +36,4 @@
           </ul> -->
         </div><!--/.nav-collapse -->
       </div>
-</nav>
+    </nav>
