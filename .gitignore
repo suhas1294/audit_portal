@@ -26,7 +26,7 @@ db/schema.rb
 # Ignore files - Needed in dev environment
 config/database.yml
 config/security.yml
-
+config/initializers/wicked_pdf.rb
 
 # Ruby and Gemset
 .rbenv-gemset

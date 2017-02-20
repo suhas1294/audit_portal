@@ -1,6 +1,6 @@
 <h1>List of Users</h1>
 
-<button type="button" class="btn btn-sm btn-default"><%= link_to 'Add User',new_user_path %></button>
+<button type="button" class="btn btn-sm btn-default"><%= link_to 'Add User',new_user_path if @current_user.has_role? :admin%></button>
 <button type="button" class="btn btn-sm btn-default"><%= link_to 'Get PDF',users_path(format: :pdf), method: :get %></button>
 <table class="table table-condensed">
   <tr>
@@ -12,7 +12,6 @@
     <th></th>
     <th></th>
   </tr>
-
   <% @users.each do |user| %>
   <tr>
     <td><%= user.first_name.capitalize+" "+user.lastname.capitalize %></td>
@@ -21,8 +20,8 @@
     <td><%= user.access_level %></td>
     <td><%= "Signed" if (user.sign_of_HOD == true) %></td>
     <td><%= link_to 'Details', user_path(user) %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Delete', user_path(user), :method => :delete,data: {confirm: "Are you sure?"} %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) if @current_user.has_role? :admin %></td>
+    <td><%= link_to 'Delete', user_path(user), :method => :delete,data: {confirm: "Are you sure?"} if @current_user.has_role? :admin%></td>
   </tr>
   <% end %>
 </table>

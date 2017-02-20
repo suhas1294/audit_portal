@@ -12,8 +12,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Home', root_path, :class =>"active" %></li>
+        <li><%= link_to 'Home', home_path, :class =>"active" %></li>
         <li><%= link_to 'Management', users_path, :class => "" %></li>
+        <% if current_user %>
+        <li>   Signed in as <%= current_user.first_name %> </li> <li> <%= link_to "Logout", '/logout' %></li>
+        <% else %>
+        <!-- <li>  <%#= link_to 'Login', '/login' %></li> -->
+        <% end %>
         <!-- <li><%#= link_to 'Dummy', users_path, :class => "" %></li> -->
         <li><a href="#">Action</a></li>
             <!-- <li class="dropdown">
@@ -37,3 +42,5 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+
+

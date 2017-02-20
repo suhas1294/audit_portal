@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  http_basic_authenticate_with name: "suhas", password: "Password@1", except: :index
+  before_filter :authorize
   require 'securerandom'
 
   def index
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       @user.save!
       redirect_to users_path
     else
-      flash[:error] = @user.errors.full_messages
+      flash[:error] = @user.errors.keys.first.to_s+" "+@user.errors.values.first.first
       render :new
     end
   end
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:first_name, :lastname, :emp_id, :reporting_manager, :access_level, :rad_uname, :rad_pwd, :rad_uname_cre_date, :rad_pwd_exp_date, :email, :sign_of_HOD)
+    params.require(:user).permit(:first_name, :lastname, :emp_id, :reporting_manager, :access_level, :rad_uname, :rad_pwd, :rad_uname_cre_date, :rad_pwd_exp_date, :email, :sign_of_HOD, :password, :password_confirmation)
   rescue
     {}
   end
