@@ -23,3 +23,5 @@ User.create(first_name: "mohit", lastname: "dave", emp_id: 3575, access_level: "
 User.create(first_name: "valerian", lastname: "anthony", emp_id: 1469, access_level: "L2", reporting_manager: "manish sinha", sign_of_HOD: true, rad_uname: "valeriana@ttl", rad_pwd: "Tata@2017", rad_uname_cre_date: Date.today, rad_pwd_exp_date: Date.today+30.days, password: "Password@2", password_confirmation: "Password@2", email: "valeriana@tata.com").add_role :basic_user
 
 User.create(first_name: "vijay", lastname: "agarwal", emp_id: 1475, access_level: "L2", reporting_manager: "manish sinha", sign_of_HOD: true, rad_uname: "vijaya@ttl", rad_pwd: "Tata@2017", rad_uname_cre_date: Date.today, rad_pwd_exp_date: Date.today+30.days, password: "Password@2", password_confirmation: "Password@2", email: "vijay@tata.com").add_role :basic_user
+
+#24.times.map { [*'0'..'9', *'a'..'z'].sample }.join
