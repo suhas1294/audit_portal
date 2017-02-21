@@ -24,6 +24,8 @@ class UsersController < ApplicationController
     if @user.valid?
       # flash[:success] = "User Created Successfully !"
       @user.rad_pwd = SecureRandom.hex
+      @user.password = params[:user][:password]
+      @user.password_confirmation = params[:user][:password_confirmation]
       @user.save!
       redirect_to users_path
     else

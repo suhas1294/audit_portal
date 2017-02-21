@@ -1,12 +1,13 @@
 class User < ApplicationRecord
   rolify
   has_secure_password
-
+  require 'bcrypt'
   after_create :assign_default_role
 
   def assign_default_role
     self.add_role(:basic_user) if self.roles.blank?
   end
+  
   validates_uniqueness_of :emp_id
   validates_uniqueness_of :email
   validates_acceptance_of :sign_of_HOD, :message => "Must be Signed by HOD"
