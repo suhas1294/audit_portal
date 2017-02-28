@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :rad_uname_cre_date, presence: true
   validates :rad_pwd_exp_date, presence: true
-  validates :password, presence: true
-  validates :password_confirmation, presence: true
+  validates :password, presence: true,  :on => :create
+  validates :password_confirmation, presence: true, :on => :create
 
 end
